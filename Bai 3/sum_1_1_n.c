@@ -1,5 +1,5 @@
 /**
- * @file sum_n_2.c
+ * @file sum_1_1_n.c
  * @author Huylq (quochuy201197@gmail.com)
  * @brief 
  * @version 0.1
@@ -18,37 +18,18 @@
 
 clock_t start,end;
 double time_use;
+
 /**
- * @brief 
- * this function to cal sum from 1 to n number
- * @param n 
+ * @brief  1+1/2+1/3+....+1/n
+ * 
+ * @param number 
  * @return uint64_t 
  */
-uint64_t sum_n_2(uint64_t number)
+uint64_t sum_1_1_n(uint64_t number)
 {
     start = clock();
     uint64_t sum = 0;
     uint64_t count = 0;
-    
-    #if 0
-    while (count<=number)
-    {
-        sum+= pow(count,2);
-        count++;
-    }
-    #endif
-
-    #if 0
-    while (count<=number)
-    {
-        sum+=count*count;
-        count++;
-    }    
-    #endif
-
-    #if 1
-    sum = (number*(number+1)*(2*number+1)/6);    
-    #endif
 
     end = clock();
     return sum;    
@@ -60,7 +41,7 @@ int main()
     printf("begin function\n");
     printf("n=: ");
     scanf("%lu",&number);
-    printf("sum = %lu\n",sum_n_2(number));
+    printf("sum = %lu\n",sum_1_1_n(number));
     //getch();
     time_use = (double)(start-end)/CLOCKS_PER_SEC;
     printf("Time use: %f\n",time_use);

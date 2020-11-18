@@ -12,7 +12,10 @@
 #include<stdlib.h>
 #include<stdint.h>
 #include<conio.h>
+#include<time.h>
 
+clock_t start,end;
+double time_use;
 /**
  * @brief 
  * this function to cal sum from 1 to n number
@@ -46,11 +49,15 @@ uint64_t sum_n_number(uint64_t number)
 
 int main()
 {
+    start = clock();
     uint64_t number = 0;
     printf("begin function\n");
     printf("n=: ");
     scanf("%lu",&number);
     printf("sum = %lu\n",sum_n_number(number));
     //getch();
+    end = clock();
+    time_use = (double)(end-start)/CLOCKS_PER_SEC;
+    printf("time = %f",time_use);
     return 0;
 }
