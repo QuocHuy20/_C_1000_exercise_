@@ -1,5 +1,5 @@
 /**
- * @file sum_1_1_n.c
+ * @file main.c
  * @author Huylq (quochuy201197@gmail.com)
  * @brief 
  * @version 0.1
@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2020 Fangia Savy
  * 
  */
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdint.h>
@@ -20,22 +19,22 @@ clock_t start,end;
 double time_use;
 
 /**
- * @brief  1+1/2+1/3+....+1/n
+ * @brief  1+1/3+1/5+....+1/(2n+1)
  * 
  * @param number 
  * @return uint64_t 
  */
-double sum_1_1_n(uint64_t number)
+double sum(uint64_t number)
 {
     double sum = 1;
     uint64_t count = 1;
 
     while (count<=number)
     {
-        sum += 1.0/count;
+        sum += 1.0/(2*count+1);
         count++;
     }
-
+    
     return sum;    
 }
 
@@ -46,7 +45,7 @@ int main()
     printf("begin function\n");
     printf("n=: ");
     scanf("%lu",&number);
-    printf("sum = %f\n",sum_1_1_n(number));
+    printf("sum = %f\n",sum(number));
     //getch();
     end = clock();
     time_use = (double)(end-start)/CLOCKS_PER_SEC;
